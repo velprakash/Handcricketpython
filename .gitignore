@@ -1,129 +1,87 @@
-# Byte-compiled / optimized / DLL files
-__pycache__/
-*.py[cod]
-*$py.class
-
-# C extensions
-*.so
-
-# Distribution / packaging
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-pip-wheel-metadata/
-share/python-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
-MANIFEST
-
-# PyInstaller
-#  Usually these files are written by a python script from a template
-#  before PyInstaller builds the exe, so as to inject date/other infos into it.
-*.manifest
-*.spec
-
-# Installer logs
-pip-log.txt
-pip-delete-this-directory.txt
-
-# Unit test / coverage reports
-htmlcov/
-.tox/
-.nox/
-.coverage
-.coverage.*
-.cache
-nosetests.xml
-coverage.xml
-*.cover
-*.py,cover
-.hypothesis/
-.pytest_cache/
-
-# Translations
-*.mo
-*.pot
-
-# Django stuff:
-*.log
-local_settings.py
-db.sqlite3
-db.sqlite3-journal
-
-# Flask stuff:
-instance/
-.webassets-cache
-
-# Scrapy stuff:
-.scrapy
-
-# Sphinx documentation
-docs/_build/
-
-# PyBuilder
-target/
-
-# Jupyter Notebook
-.ipynb_checkpoints
-
-# IPython
-profile_default/
-ipython_config.py
-
-# pyenv
-.python-version
-
-# pipenv
-#   According to pypa/pipenv#598, it is recommended to include Pipfile.lock in version control.
-#   However, in case of collaboration, if having platform-specific dependencies or dependencies
-#   having no cross-platform support, pipenv may install dependencies that don't work, or not
-#   install all needed dependencies.
-#Pipfile.lock
-
-# PEP 582; used by e.g. github.com/David-OConnor/pyflow
-__pypackages__/
-
-# Celery stuff
-celerybeat-schedule
-celerybeat.pid
-
-# SageMath parsed files
-*.sage.py
-
-# Environments
-.env
-.venv
-env/
-venv/
-ENV/
-env.bak/
-venv.bak/
-
-# Spyder project settings
-.spyderproject
-.spyproject
-
-# Rope project settings
-.ropeproject
-
-# mkdocs documentation
-/site
-
-# mypy
-.mypy_cache/
-.dmypy.json
-dmypy.json
-
-# Pyre type checker
-.pyre/
+from random import randint
+print("Hand cricket game")
+out,w,x,y=1,"",0,0
+def process(w):
+    s=0
+    while True:
+        a=int(input("you :"))
+        r=randint(1,6)
+        print("pc: ",r)
+        if  a==r :
+            break
+            print("out")
+        elif a!=r and  w=="batting":
+            s+=a
+        elif r!=a and w=="bowling":
+            s+=r
+    return s
+e=input("Enter your choice,Odd or Even:")
+print("Number should be 1-6")
+n=int(input("You :"))
+k=randint(1,6)
+print("pc :",k)
+if (n+k)%2==0:
+    i="even"
+    if  i==e or e=="e" or e=="E":
+        w=input("Your choice batting or bowling:")
+        if w=="batting" or w=="bat" :
+            x=process(w)
+            print("Your score is",x,"Now you are going to bowl")
+            y=process("bowling")
+            print("System score is ",y)
+        elif w=="bowling" or w=="bowl":
+            x=process(w)
+            print("system score is ",x,"Now you are going to batting")
+            y=process("batting")
+            print("your score is",x)
+    else:
+         print("system choice")
+         w=randint(0,1)
+         if w==0:
+            print("system choose to bowl")
+            x=process("batting")
+            print("Your score is",x,"Now you are going to bowl")
+            y=process("bowling")
+            print("System score is ",y)
+         if w==1:
+            print("System choose to bat")
+            y=process("bowling")
+            print("System score is ",y,"Now you are going to bat")
+            x=process("batting")
+            print("Your score is",x)
+elif (n+k)%2:
+    i="odd"
+    if i==e or e=="o" or i=="O":
+        w=input("Your choice batting or bowling:")
+        if w=="batting" or w=="bat":
+            x=process(w)
+            print("Your score is",x,"Now you are going to bowl")
+            y=process("bowling")
+            print("System score is ",y)
+        elif w=="bowling" or w=="bowl":
+            x=process(w)
+            print("System score is ",x,"Now you are going to bat")e
+            y=process("batting")
+            print("Your score is",y)
+            
+    else:
+        print("System choice")
+        w=randint(0,1)
+        if w==0:
+            print("System choose to bowl")
+            x=process("batting")
+            print("Your score is",x,"Now you are going to bowl")
+            y=process("bowling")
+            print("System score is ",y)
+        if w==1:
+            print("System choose to bat")
+            y=process("bowling")
+            print("System score is ",y,"Now you are going to bat")
+            x=process("batting")
+            print("Your score is",x)
+if y>x:
+    print("System wins")
+elif y==x:
+    print("Match draw")
+elif x>y:
+    print("You win")
