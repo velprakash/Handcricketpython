@@ -60,7 +60,7 @@ elif (n+k)%2:
             print("System score is ",y)
         elif w=="bowling" or w=="bowl":
             x=process(w)
-            print("System score is ",x,"Now you are going to bat")e
+            print("System score is ",x,"Now you are going to bat")
             y=process("batting")
             print("Your score is",y)
             
